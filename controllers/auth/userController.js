@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import User from '../../model/User.js';
+import User from '../../model/user.js';
 
 // Update registration by ID
 export const update = async (req, res) => {

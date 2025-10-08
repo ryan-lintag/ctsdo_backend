@@ -2,7 +2,7 @@ import validator from 'validator';
 import nodemailer from 'nodemailer';
 import crypto from 'crypto';
 import bcrypt from 'bcryptjs';
-import User from '../../model/User.js';
+import User from '../../model/user.js';
 import dotenv from 'dotenv';
 
 dotenv.config(); // Ensure environment variables are loaded

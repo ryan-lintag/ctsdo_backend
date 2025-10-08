@@ -1,4 +1,4 @@
-import User from '../../model/User.js';
+import User from '../../model/user.js';
 import Registration from '../../model/registration.js';
 import Application from '../../model/application.js';
 import Course from '../../model/course.js';

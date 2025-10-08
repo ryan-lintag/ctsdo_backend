@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import validator from 'validator';
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
-import User from '../../model/User.js';
+import User from '../../model/user.js';
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
