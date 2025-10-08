@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 // CORS configuration with CLIENT_URL whitelist
 const allowedOrigins = process.env.CLIENT_URL 
   ? process.env.CLIENT_URL.split(',').map(url => url.trim())
-  : ['http://localhost:5173', 'http://localhost:5174']; // fallback for development
+  : ['http://localhost:5173', 'http://localhost:5174', 'https://ctsdo-frontend.vercel.app']; // fallback for development
 
 const corsOptions = {
   origin: (origin, callback) => {
