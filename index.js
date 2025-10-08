@@ -31,27 +31,27 @@ app.use((req, res, next) => {
 });
 
 // CORS configuration with CLIENT_URL whitelist
-// const allowedOrigins = process.env.CLIENT_URL 
-//   ? process.env.CLIENT_URL.split(',').map(url => url.trim())
-//   : ['http://localhost:5173', 'http://localhost:5174']; // fallback for development
+const allowedOrigins = process.env.CLIENT_URL 
+  ? process.env.CLIENT_URL.split(',').map(url => url.trim())
+  : ['http://localhost:5173', 'http://localhost:5174']; // fallback for development
 
-// const corsOptions = {
-//   origin: (origin, callback) => {
-//     // Allow requests with no origin (like mobile apps or curl requests)
-//     if (!origin) return callback(null, true);
-    
-//     if (allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS policy'));
-//     }
-//   },
-//   credentials: true,
-// };
 const corsOptions = {
-  origin: true, // Allow all origins
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS policy'));
+    }
+  },
   credentials: true,
 };
+// const corsOptions = {
+//   origin: true, // Allow all origins
+//   credentials: true,
+// };
 
 app.use(cors(corsOptions));
 app.use(cookieParser());
