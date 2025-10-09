@@ -14,7 +14,7 @@ const PageSettingsSchema = new mongoose.Schema({
 
   googleMapEmbed: { 
     type: String, 
-    default: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30814.727311615177!2d120.50327758173422!3d15.11209407047506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33968cbf29ec7ebb%3A0x66f07782278c9b64!2sDolores%20(Hacienda%20Dolores)%2C%20Porac%2C%20Pampanga%2C%20Philippines!5e0!3m2!1sen!2sph"
+    default: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30825.60999142209!2d120.53474184188458!3d15.079738099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396f4bb560fd10b%3A0xd96b63f6379b3384!2sPorac%20Manpower%20Training%20Center!5e0!3m2!1sen!2sph!4v1696516279075!5m2!1sen!2sph"
   }
 }, { timestamps: true });
 
