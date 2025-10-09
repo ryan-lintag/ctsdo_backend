@@ -24,8 +24,10 @@ export const login = async (req, res) => {
 
     res.cookie('access_token', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'none'
+      secure: process.env.NODE_ENV === 'production', 
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
+      path: '/'
     });
 
     delete user.password;
@@ -40,8 +42,9 @@ export const login = async (req, res) => {
 export const logout = (req, res) => {
   res.clearCookie('access_token', {
     httpOnly: true,
-    sameSite: 'none',
-    secure: process.env.NODE_ENV === 'production'
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    secure: process.env.NODE_ENV === 'production',
+    path: '/'
   });
   res.status(200).json({ message: 'Logout success' });
 };
