@@ -25,7 +25,7 @@ export const login = async (req, res) => {
     res.cookie('access_token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'Strict'
+      sameSite: 'none'
     });
 
     delete user.password;
@@ -40,7 +40,7 @@ export const login = async (req, res) => {
 export const logout = (req, res) => {
   res.clearCookie('access_token', {
     httpOnly: true,
-    sameSite: 'Strict',
+    sameSite: 'none',
     secure: process.env.NODE_ENV === 'production'
   });
   res.status(200).json({ message: 'Logout success' });
