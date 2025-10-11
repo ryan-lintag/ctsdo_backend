@@ -2,68 +2,69 @@ import mongoose from 'mongoose';
 
 const registrationSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-  idPicture: { type: String },
-  uliNumber: { type: String }, // removed unique & required
-  entryDate: { type: Date },
+  idPicture: { type: String, required: true },
+  uliNumber: { type: String, required: true }, // removed unique & required
+  entryDate: { type: Date, required: true },
 
   // Learner Info
-  lastName: { type: String },
-  firstName: { type: String },
-  middleName: { type: String },
+  lastName: { type: String, required: true },
+  firstName: { type: String, required: true },
+  middleName: { type: String, required: true },
   extensionName: { type: String },
   address: {
-    street: { type: String },
-    barangay: { type: String },
-    district: { type: String },
-    city: { type: String },
-    province: { type: String },
-    region: { type: String },
+    street: { type: String, required: true },
+    barangay: { type: String, required: true },
+    district: { type: String, required: true },
+    city: { type: String, required: true },
+    province: { type: String, required: true },
+    region: { type: String, required: true },
   },
-  email: { type: String },
-  facebook: { type: String },
-  contactNumber: { type: String },
-  nationality: { type: String },
+  email: { type: String, required: true },
+  facebook: { type: String, required: true },
+  contactNumber: { type: String, required: true },
+  nationality: { type: String, required: true },
 
   // Personal Info
-  sex: { type: String },
-  civilStatus: { type: String },
-  employmentStatus: { type: String },
-  dob: { type: Date },
+  sex: { type: String, required: true },
+  civilStatus: { type: String, required: true },
+  employmentStatus: { type: String, required: true },
+  dob: { type: Date, required: true },
   birthPlace: {
-    city: { type: String },
-    province: { type: String },
-    region: { type: String },
+    city: { type: String, required: true },
+    province: { type: String, required: true },
+    region: { type: String, required: true },
   },
-  educationalAttainment: { type: [String] },
+  educationalAttainment: { type: [String], required: true },
   parentGuardian: {
-    name: { type: String },
-    address: { type: String },
+    name: { type: String, required: true },
+    address: { type: String, required: true },
   },
 
   // Classification
-  classifications: [String],
-  disabilityType: [String],
-  disabilityCause: [String],
+  classifications: { type: [String], required: true },
+  disabilityType: { type: [String], required: true },
+  disabilityCause: { type: [String], required: true },
 
   // Training Info
-  courseId: { type: String },
-  scholarshipType: { type: String },
+  courseId: { type: String, required: true },
+  scholarshipType: { type: String, required: true },
 
   // Consent
-  privacyAgreement: { type: Boolean },
+  privacyAgreement: { type: Boolean, required: true },
 
   // Metadata
-  dateAccomplished: { type: Date },
+  dateAccomplished: { type: Date, required: true },
   //applicantSignature: { type: String },
   //registrarSignature: { type: String },
-  dateReceived: { type: Date },
-  image: { type: String },
-  thumbmark: { type: String },
+  dateReceived: { type: Date, required: true },
+  image: { type: String, required: true },
+  thumbmark: { type: String, required: true },
 
   // Approval / Feedback
   isApproved: {
     type: Boolean,
-    default: false, // default false, but not required
+    default: false,
+    required: true // default false, but not required
   },
   feedback: { type: String, default: '' },
 });

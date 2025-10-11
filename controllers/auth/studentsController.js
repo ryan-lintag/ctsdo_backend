@@ -32,13 +32,7 @@ export const markStudentCompleted = async (req, res) => {
 
     if (!student) return res.status(404).json({ error: 'Student not found' });
 
-    const today = new Date();
-    const courseEnd = new Date(student.endDate); // make sure endDate is stored
-
-    if (today < courseEnd) {
-      return res.status(400).json({ error: 'Course has not ended yet' });
-    }
-
+    // Allow manual completion regardless of course end date
     student.status = 'Completed';
     await student.save();
 
