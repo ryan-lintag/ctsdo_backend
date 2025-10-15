@@ -78,12 +78,12 @@ export const register = async (req, res) => {
       { expiresIn: '15m' }
     );
 
-    // ✅ Ensure CLIENT_URL is set
-    if (!process.env.CLIENT_URL) {
-      throw new Error('CLIENT_URL is not defined in environment variables.');
+    // ✅ Ensure WEBSITE_URL is set
+    if (!process.env.WEBSITE_URL) {
+      throw new Error('WEBSITE_URL is not defined in environment variables.');
     }
 
-    const verificationLink = `${process.env.CLIENT_URL}/verify-email/${token}`;
+    const verificationLink = `${process.env.WEBSITE_URL}/verify-email/${token}`;
 
     // ✅ Try sending email
     try {
