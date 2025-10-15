@@ -41,9 +41,9 @@ const registrationSchema = new mongoose.Schema({
   },
 
   // Classification
-  classifications: { type: [String], required: true },
-  disabilityType: { type: [String], required: true },
-  disabilityCause: { type: [String], required: true },
+  classifications: { type: [String], required: false },
+  disabilityType: { type: [String], required: false },
+  disabilityCause: { type: [String], required: false },
 
   // Training Info
   courseId: { type: String, required: true },
@@ -56,9 +56,9 @@ const registrationSchema = new mongoose.Schema({
   dateAccomplished: { type: Date, required: true },
   //applicantSignature: { type: String },
   //registrarSignature: { type: String },
-  dateReceived: { type: Date, required: true },
+  dateReceived: { type: Date, required: false },
   image: { type: String, required: true },
-  thumbmark: { type: String, required: true },
+  thumbmark: { type: String, required: false },
 
   // Approval / Feedback
   isApproved: {
