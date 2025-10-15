@@ -30,10 +30,13 @@ router.put("/", async (req, res) => {
 
 // Admin: Upload images
 router.post("/upload", upload.single("file"), async (req, res) => {
-  if (!req.file) return res.status(400).json({ error: "No file uploaded" });
+  if (!req.file) {
+    return res.status(400).json({ error: "No file uploaded" });
+  }
 
+  // Use the filename that multer assigned and return the uploads path
   const fileUrl = `/uploads/${req.file.filename}`;
-  res.json({ url: fileUrl });
+  return res.json({ url: fileUrl });
 });
 
 export default router;
