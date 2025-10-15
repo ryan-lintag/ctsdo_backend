@@ -11,6 +11,7 @@ const applicationSchema = new mongoose.Schema(
     lastName: { type: String, required: false },
     extensionName: { type: String, required: false },
     dateOfBirth: { type: Date, required: false },
+    dateOfApplication: { type: Date, required: true },
     age: { type: Number, required: false },
     birthPlace: {
       region: { type: String, required: false },
