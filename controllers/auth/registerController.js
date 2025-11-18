@@ -15,6 +15,7 @@ const transporter = nodemailer.createTransport({
 export const register = async (req, res) => {
   try {
     const {
+      userName,
       email,
       password,
       role = 'applicant',
@@ -54,6 +55,7 @@ export const register = async (req, res) => {
 
     // ✅ Save user
     const newUser = new User({
+      userName,
       email: normalizedEmail,
       password: hashedPassword,
       role,
